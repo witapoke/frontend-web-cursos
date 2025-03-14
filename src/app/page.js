@@ -4,10 +4,16 @@ import Swal from 'sweetalert2'
 import CardCourse from '../componentes/CardCourse'
 import Header from '../componentes/Header'
 export default function Home() {
+  const BASE_BACKEND_URL = !!process.env.VERCEL_ENV
+    ? process.env.NEXT_PUBLIC_BACKEND_URL
+    : 'http://localhost:5000'
+
   const [courses, setCourses] = useState([])
 
+  console.log({ BASE_BACKEND_URL })
+
   useEffect(() => {
-    fetch('http://localhost:5000/courses')
+    fetch(`${BASE_BACKEND_URL}/courses`)
       .then((res) => res.json())
       .then(({ ok, data }) => {
         if (ok) {
