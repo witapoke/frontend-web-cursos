@@ -5,6 +5,16 @@
   box-sizing: border-box;
 } */
 
+@theme {
+  --breakpoint-lg: 65rem;
+}
+
+@layer utilities {
+  .shadow-mine:hover {
+    box-shadow: 5px 4px 5px 0px rgba(232, 212, 212, 0.75);
+  }
+}
+
 body {
   background-color: rgba(0, 0, 0, 0.777);
 }
